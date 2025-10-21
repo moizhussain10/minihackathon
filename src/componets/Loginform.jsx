@@ -1,6 +1,8 @@
 import React from "react";
 import { Button, Checkbox, Form, Input, Card, Typography } from "antd";
+import { Link } from "react-router-dom";
 const { Title, Text } = Typography;
+
 
 const onFinishFailed = (errorInfo) => {
   console.log("Failed:", errorInfo);
@@ -100,9 +102,9 @@ const Loginform = ({ signinuser }) => (
       <div style={{ textAlign: "center", marginTop: "10px" }}>
         <Text type="secondary">
           don't have an acount?
-          <a href="/" style={{ color: "#5563DE", fontWeight: 500 }}>
+          <Link to={"/"} style={{ color: "#5563DE", fontWeight: 500 }}>
             Signup
-          </a>
+          </Link>
         </Text>
       </div>
     </Card>

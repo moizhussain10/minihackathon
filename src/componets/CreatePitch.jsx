@@ -45,7 +45,7 @@ export default function CreatePitch() {
 
         setIsLoading(true);
         try {
-            const pitchData = await generatePitch(idea);
+            const pitchData = await generatePitch(idea, tone);
             const landingData = await generateLandingPage(pitchData);
 
             const combinedData = {

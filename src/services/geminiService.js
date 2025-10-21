@@ -5,7 +5,7 @@ const ai = new GoogleGenAI({
 });
 
 
-export const generatePitch = async (startupIdea, tone = 'professional') => {
+export const generatePitch = async (startupIdea, tone) => {
     try {
 
         const prompt = `
