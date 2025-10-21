@@ -92,16 +92,16 @@ const Loginform = ({ signinuser }) => (
               letterSpacing: "0.5px",
             }}
           >
-            Sign Up
+            Login
           </Button>
         </Form.Item>
       </Form>
 
       <div style={{ textAlign: "center", marginTop: "10px" }}>
         <Text type="secondary">
-          don't have an acount?{" "}
+          don't have an acount?
           <a href="/" style={{ color: "#5563DE", fontWeight: 500 }}>
-            Login
+            Signup
           </a>
         </Text>
       </div>

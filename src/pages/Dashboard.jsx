@@ -21,7 +21,7 @@ import PitchDisplay from '../componets/PitchDsplay';
 //   required: ["name", "tagline", "elevatorPitch"],
 // };
 
-function Dashboard() {
+function Dashboard({logout}) {
   const [user, setUser] = useState(null);
   const [generatedPitch, setGeneratedPitch] = useState(null);
   const [landingPageCode, setLandingPageCode] = useState(null)
@@ -43,6 +43,7 @@ function Dashboard() {
   const handleLogout = async () => {
     await signOut(auth);
     navigate("/login");
+    logout(false)
   };
 
   const fetchPitches = async (uid) => {

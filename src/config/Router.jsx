@@ -26,7 +26,7 @@ function Router() {
       <Routes>
         <Route path='/' element={isuser ? <Dashboard /> : <Signup />} />
         <Route path='/login' element={isuser ? <Dashboard /> : <Login />} />
-        <Route path='/dashboard' element={isuser ? <Dashboard /> : <Signup />} />
+        <Route path='/dashboard' element={isuser ? <Dashboard logout={setisuser} /> : <Signup />} />
         <Route path='/create-pitch' element={isuser ? <CreatePitch/> : <Signup />}/>
       </Routes>
     </BrowserRouter>
