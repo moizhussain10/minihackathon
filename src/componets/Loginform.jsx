@@ -101,7 +101,7 @@ const Loginform = ({ signinuser }) => (
         <Text type="secondary">
           don't have an acount?{" "}
           <a href="/" style={{ color: "#5563DE", fontWeight: 500 }}>
-            Signup
+            Login
           </a>
         </Text>
       </div>
