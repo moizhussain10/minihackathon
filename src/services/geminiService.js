@@ -1,7 +1,7 @@
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({
-    apiKey: "AIzaSyAIJUutwDZ42T4HGkg3jqGKiGDGD2S-HE8"
+    apiKey: "AIzaSyDdQ-529N16mQLa9NrAlT3MUOF9ghMN0OM"
 });
 
 
@@ -107,7 +107,7 @@ Return ONLY the complete HTML code with embedded CSS. Do not include any explana
         });
 
 
-        const htmlMatch = res.text.match(/<!DOCTYPE html>[\s\S]*<\/html>/i) || text.match(/<html[\s\S]*<\/html>/i);
+        const htmlMatch = res.text.match(/<!DOCTYPE html>[\s\S]*<\/html>/i) || res.text.match(/<html[\s\S]*<\/html>/i);
         if (htmlMatch) {
             return htmlMatch[0];
         } else {
