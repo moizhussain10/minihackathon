@@ -26,7 +26,6 @@ function Login() {
         textAlign: "center"
     }}>
       <Loginform signinuser={signinuser}/>
-      <p>Dont hav an account <Link to={"/"}>Signup</Link></p>
     </div>
   )
 }

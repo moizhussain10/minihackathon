@@ -11,7 +11,7 @@ function Signup() {
     createUserWithEmailAndPassword(auth, values.email, values.password)
       .then((userCredential) => {
         const user = userCredential.user;
-        navigate("/dashboard")
+        navigate("/login")
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -24,7 +24,6 @@ function Signup() {
         textAlign: "center"
     }}>
       <Signupform registeruser={registeruser} />
-      <p>Already have an account <Link to={"/login"}>Login</Link></p>
     </div>
   )
 }

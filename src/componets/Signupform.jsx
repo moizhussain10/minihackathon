@@ -1,113 +1,77 @@
 import React from "react";
-import { Button, Checkbox, Form, Input, Card, Typography } from "antd";
+import { Form, Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-const { Title, Text } = Typography;
+import "./Signupform.css"; // animations & custom styles
 
-const onFinishFailed = (errorInfo) => {
-  console.log("Failed:", errorInfo);
-};
+const Signupform = ({ registeruser }) => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    registeruser({ email, password });
+  };
 
-const Signupform = ({ registeruser }) => (
-  <div
-    style={{
-      minHeight: "100%",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
+  return (
+    <div className="d-flex justify-content-center align-items-center min-vh-100 bg-gradient">
+      <Card className="p-4 shadow-lg signup-card animate-slide-up">
+        <div className="text-center mb-3">
+          <h3 className="fw-bold mb-1">Create an Account</h3>
+          <p className="text-muted mb-0">Join PitchCraft today 🚀</p>
+        </div>
 
-    }}
-  >
-    <Card
-      bordered={false}
-      style={{
-        width: 400,
-        borderRadius: "16px",
-        boxShadow: "0 4px 25px rgba(0,0,0,0.1)",
-        background: "#fff",
-        padding: "30px 20px",
-        border: "1px solid black"
-      }}
-    >
-      <div style={{ textAlign: "center", marginBottom: "24px" }}>
-        <Title level={3} style={{ marginBottom: "0" }}>
-          Create an Account
-        </Title>
-        <Text type="secondary">Join PitchCraft today 🚀</Text>
-      </div>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label className="fw-semibold">Email</Form.Label>
+            <Form.Control
+              type="email"
+              name="email"
+              placeholder="example@email.com"
+              required
+              className="rounded-3 focus-glow"
+            />
+          </Form.Group>
 
-      <Form
-        name="signup"
-        layout="vertical"
-        onFinish={registeruser}
-        onFinishFailed={onFinishFailed}
-        autoComplete="off"
-      >
-        <Form.Item
-          label={<span style={{ fontWeight: 600 }}>Email</span>}
-          name="email"
-          rules={[
-            { required: true, message: "Please input your email!" },
-            { type: "email", message: "Enter a valid email!" },
-          ]}
-        >
-          <Input
-            size="large"
-            placeholder="example@email.com"
-            style={{
-              borderRadius: "8px",
-            }}
-          />
-        </Form.Item>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label className="fw-semibold">Password</Form.Label>
+            <Form.Control
+              type="password"
+              name="password"
+              placeholder="••••••••"
+              minLength={6}
+              required
+              className="rounded-3 focus-glow"
+            />
+          </Form.Group>
 
-        <Form.Item
-          label={<span style={{ fontWeight: 600 }}>Password</span>}
-          name="password"
-          rules={[
-            { required: true, message: "Please input your password!" },
-            { min: 6, message: "Password must be at least 6 characters" },
-          ]}
-        >
-          <Input.Password
-            size="large"
-            placeholder="••••••••"
-            style={{
-              borderRadius: "8px",
-            }}
-          />
-        </Form.Item>
+          <Form.Group className="mb-3 d-flex justify-content-between align-items-center">
+            <Form.Check
+              type="checkbox"
+              label="Remember me"
+              name="remember"
+            />
+          </Form.Group>
 
-        <Form.Item name="remember" valuePropName="checked" style={{ marginBottom: "8px" }}>
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
-
-        <Form.Item style={{ marginTop: "16px" }}>
           <Button
-            type="primary"
-            htmlType="submit"
-            size="large"
-            block
-            style={{
-              borderRadius: "8px",
-              background: "linear-gradient(90deg, #5563DE 0%, #74ABE2 100%)",
-              fontWeight: 600,
-              letterSpacing: "0.5px",
-            }}
+            variant="primary"
+            type="submit"
+            className="w-100 py-2 fw-semibold rounded-3 signup-btn"
           >
             Sign Up
           </Button>
-        </Form.Item>
-      </Form>
+        </Form>
 
-      <div style={{ textAlign: "center", marginTop: "10px" }}>
-        <Text type="secondary">
-          Already have an account?{" "}
-          <Link to={"/login"} style={{ color: "#5563DE", fontWeight: 500 }}>
-            Login
-          </Link>
-        </Text>
-      </div>
-    </Card>
-  </div>
-);
+        <div className="text-center mt-3">
+          <small className="text-muted">
+            Already have an account?{" "}
+            <Link to="/login" className="fw-semibold text-decoration-none text-primary">
+              Login
+            </Link>
+          </small>
+        </div>
+      </Card>
+    </div>
+  );
+};
 
 export default Signupform;
